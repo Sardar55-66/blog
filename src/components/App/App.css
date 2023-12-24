@@ -1,0 +1,40 @@
+.App {
+  background-color: #EBEEF3;
+  padding-bottom: 20px;
+  min-height: 1300px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background-color: #FFFFFF;
+  margin-bottom: 50px;
+  padding: 0 10px;
+}
+
+.header__info {
+  display: flex;
+  align-items: center;
+  width: 14%;
+  justify-content: space-evenly;
+}
+
+.css-8atqhb {
+  position: absolute;
+  top: 50%;
+}
+
+.main-page-redirect {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  color: #000;
+  font-size: 24px;
+  margin-top: 50px;
+}
+
+.main-page:hover {
+  text-decoration: underline;
+  color: blue;
+}

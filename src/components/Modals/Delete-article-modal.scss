@@ -1,0 +1,39 @@
+.yes-btn,
+.no-btn {
+    width: 50px;
+    height: 35px;
+    font-size: 16px;
+    border: 1px solid #595959;
+    color: #595959;
+    background-color: #fff;
+    border-radius: 6px;
+    text-align: right;
+    float: right;
+    cursor: pointer;
+}
+
+.yes-btn:hover,
+.no-btn:hover {
+    background-color: #595959;
+    color: #fff
+}
+
+.yes-btn {
+    margin-left: 10px;
+}
+
+.MuiBox-root {
+    border-radius: 6px;
+}
+
+.MuiTypography-root {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+}
+
+.MuiTypography-body1 {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
