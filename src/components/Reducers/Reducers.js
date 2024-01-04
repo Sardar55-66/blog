@@ -46,7 +46,7 @@ const initialState3 = {
     article: [],
 }
 
-export const addCurrentArticle = (state = initialState2, action) => {
+export const addCurrentArticle = (state = initialState3, action) => {
     switch (action.type) {
         case 'ARTICLE':
             return {...state, article: [action.payload]}
@@ -58,10 +58,10 @@ export const addCurrentArticle = (state = initialState2, action) => {
 
 
 const initialState4 = {
-    page: null
+    page: 1
 }
 
-export const addPage = (state = initialState2, action) => {
+export const addPage = (state = initialState4, action) => {
     switch (action.type) {
         case 'PAGE':
             return {...state, page: action.payload}
@@ -70,3 +70,79 @@ export const addPage = (state = initialState2, action) => {
             return state;
     }
 }
+
+
+// const initialState5 = {
+//     userInfo: [],
+//     isSignedUp: false
+// }
+
+// export const signUp = (state = initialState5, action) => {
+//     switch (action.type) {
+//         case 'SIGNUP':
+//             return {...state, isSignedUp: true, userInfo: [action.payload]}
+    
+//         default:
+//             return state;
+//     }
+// }
+
+
+const initialState6 = {
+    userInfo: null,
+    isSignedUp: false
+}
+
+export const createUser = (state = initialState6, action) => {
+    switch (action.type) {
+        case 'ADD-USER':
+            return {...state, isSignedUp: true, userInfo: action.payload}
+    
+        default:
+            return state;
+    }
+}
+
+const initialState7 = {
+    url: null
+}
+
+export const randomAvatar = (state = initialState7, action) => {
+    switch (action.type) {
+        case 'AVATAR':
+            return {...state, url: action.payload}
+    
+        default:
+            return state;
+    }
+}
+
+const initialState8 = {
+    loginData: null
+}
+
+export const loggingIn = (state = initialState8, action) => {
+    switch (action.type) {
+        case 'LOGIN':
+            return {...state, loginData: action.payload}
+    
+        default:
+            return state;
+    }
+}
+
+const initialState9 = {
+        errorMessage: null
+}
+
+export const registeringError = (state = initialState9, action) => {
+    switch (action.type) {
+        case 'ERROR':
+            return {...state, errorMessage: action.payload}
+    
+        default:
+            return state;
+    }
+}
+
+

@@ -29,7 +29,7 @@ export default function PaginationControlled() {
 
   return (
     <Stack spacing={2}>
-      <Typography><Link to={`/:${page}`}>Page: {page}</Link></Typography>
+      <Typography><Link className='page-link' to={`/:${page}`}>Page: {page}</Link></Typography>
       <Pagination count={10} page={page} onChange={handleChange} />
     </Stack>
   );

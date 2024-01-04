@@ -1,8 +1,6 @@
 import React from "react";
 import './No-article-error.scss'
 
-import { Link } from "react-router-dom";
-import { Home } from "../Home/Home";
 
 
 

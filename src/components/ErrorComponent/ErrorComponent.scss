@@ -1,0 +1,35 @@
+.ant-alert-description {
+    font-size: 26px;
+}
+
+.error-btn {
+    color: #FFFFFF;
+    background-color: #1890FF;
+    display: block;
+    margin: 0 auto;
+    font-size: 24px;
+    width: 150px;
+    height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.error-btn:hover {
+    color: red;
+}
+
+.ant-space {
+    display: block;
+    margin-bottom: 50px;
+}
+
+// ant-alert-error ant-alert-no-icon
+
+.ant-alert {
+    height: 100px;
+}
+
+svg {
+    width: 2em;
+    height: 2em;
+}

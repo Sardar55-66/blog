@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App/App';
-import { addArticleSlug, addArticles, addCurrentArticle, addPage, nextPage } from './components/Reducers/Reducers';
+import { addArticleSlug, addArticles, addCurrentArticle, addPage, createUser, loggingIn, loginStatusCheck, nextPage, randomAvatar, registeringError, signUp } from './components/Reducers/Reducers';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -16,7 +16,11 @@ const store = configureStore({
     articles: addArticles,
     article: addCurrentArticle,
     slug: addArticleSlug,
-    page: addPage
+    page: addPage,
+    avatar: randomAvatar,
+    users: createUser,
+    login: loggingIn,
+    error: registeringError
     }
 }, applyMiddleware(thunk))
 

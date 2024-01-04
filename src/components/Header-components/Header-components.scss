@@ -17,6 +17,16 @@
     text-decoration: none;
 }
 
+.link-logout {
+    text-decoration: none;
+    font-size: 18px;
+    color: #000;
+}
+
+#avatars {
+    height: 50px;
+}
+
 .signup>a {
     text-decoration: none;
 }
@@ -31,7 +41,7 @@
 }
 
 .signin {
-    width: 100px;
+    width: 140px;
     height: 40px;
     color: #000000BF;
     font-size: 20px;
@@ -39,6 +49,10 @@
     background: none;
     cursor: pointer;
     text-decoration: none;
+}
+
+.active {
+    color: red;
 }
 
 .signin:hover {

@@ -4,6 +4,14 @@
   min-height: 1300px;
 }
 
+.active {
+  color: red;
+}
+
+input {
+  font-size: 20px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -16,7 +24,7 @@
 .header__info {
   display: flex;
   align-items: center;
-  width: 14%;
+  width: 20%;
   justify-content: space-evenly;
 }
 
