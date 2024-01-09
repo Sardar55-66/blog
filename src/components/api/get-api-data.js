@@ -1,9 +1,6 @@
 
-import { redirect } from "react-router-dom";
 import { addLoginData, addLoginStatus, addNewUser, articlesAddAction, changePage, createdArticleData, editeProfiledata, editedArticleData, errorWhileRegistering, getCurrentArticle, isLoaded, noLoad, randomAvatarUrl, renewPage } from "../Actions/Actions";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
-import { editedArticle } from "../Reducers/Reducers";
 
 
 
@@ -12,14 +9,16 @@ const url = 'https://blog.kata.academy/api'
 
 
 export const getArticles = () => {
+    
     return async (dispatch) => {
+        dispatch(noLoad())
         const data = await fetch('https:/blog.kata.academy/api/articles')
         const data2 = await data.json()
         const articles = data2.articles
         setTimeout(() => {
             dispatch(articlesAddAction(articles))
         }, 1000);
-        dispatch(noLoad())
+        dispatch(isLoaded())
     }
 }
 
