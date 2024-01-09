@@ -14,7 +14,7 @@ export const NoArticle = () => {
     if (auth1 || auth2) {
         return <div className="noarticle">
         <div className="noarticle__tet">
-            <button type="submit">Sorry, no article found... go back to <Link className="home" to='/authorized-list/' >first page</Link></button>
+            Sorry, no article found... go back to <Link className="home" to='/authorized-list/' >first page</Link>
         </div>
     </div>
     } else {
