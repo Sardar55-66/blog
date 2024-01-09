@@ -12,7 +12,7 @@ export const addArticles = (state = initialState, action) => {
     
         switch (action.type) {
             case 'ADD':
-                return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload.slice(state.start, state.end)],
+                return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload],
                      spare : [...state.articles]}
             case 'NEXT-PAGE':
                 return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload.slice(state.start, state.end)]}
