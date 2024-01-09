@@ -9,11 +9,10 @@ const initialState = {
 
 
 export const addArticles = (state = initialState, action) => {
-    console.log(action.payload)
-    if (action.payload) {
+    
         switch (action.type) {
             case 'ADD':
-                return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload.length = 5],
+                return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload.slice(state.start, state.end)],
                      spare : [...state.articles]}
             case 'NEXT-PAGE':
                 return {...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles : [...action.payload.slice(state.start, state.end)]}
@@ -26,7 +25,7 @@ export const addArticles = (state = initialState, action) => {
             default:
                 return state
         }
-    }
+    
 }
 
 
