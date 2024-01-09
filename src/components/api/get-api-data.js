@@ -226,10 +226,10 @@ export const createArticleApi = (data, tags) => {
         }   
 }
 
-export const deleteArticleApi = async (slug) => {
+export const deleteArticleApi = (slug) => {
 
 
-    
+    return async(dispatch) =>{ 
         dispatch(noLoad())
         const token = JSON.parse(localStorage.getItem('token'))        
      
@@ -244,6 +244,7 @@ export const deleteArticleApi = async (slug) => {
           dispatch(isLoaded())
                 
           return result
+        }
 }
 
 
