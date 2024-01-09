@@ -3,7 +3,7 @@ import { Article } from '../Article/Article';
 import { CreateArticle } from '../Create-article/Create-article';
 import { HeaderLogo, CreateArticleBtn, HeaderUser, LogOut, SignIn, SignUp } from '../Header-components/Header-components';
 import { ListOfArticles } from '../List/List';
-import { getArticles, getRandomAvatar } from '../api/get-api-data';
+import { getArticles } from '../api/get-api-data';
 import './App.css';
 import {Routes, Route, Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -35,9 +35,7 @@ function App() {
   const isSignedUp = useSelector(state => state.users.isSignedUp)
   const errorMsg = useSelector(state => state.error.errorMessage)
   const createdArticle = useSelector(state => state.create.userArticle)
-    const slugForCreated = createdArticle?.article.slug
-
-    dispatch(getArticles())
+  const slugForCreated = createdArticle?.article.slug
   
 
 

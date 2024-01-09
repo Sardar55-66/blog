@@ -17,8 +17,9 @@ export const getArticles = () => {
         const articles = data2.articles
         setTimeout(() => {
             dispatch(articlesAddAction(articles))
+            dispatch(isLoaded())
         }, 1000);
-        dispatch(isLoaded())
+        
     }
 }
 
