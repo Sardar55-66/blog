@@ -19,6 +19,7 @@ export const getArticles = () => {
             dispatch(articlesAddAction(articles))
             dispatch(isLoaded())
         }, 1000);
+        console.group('done')
         
     }
 }
