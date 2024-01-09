@@ -20,7 +20,7 @@ export const NoArticle = () => {
     } else {
         return <div className="noarticle">
         <div className="noarticle__tet">
-            <button>Sorry, no article found... go back to <Link className="home" to='/' >first page</Link></button>
+            Sorry, no article found... go back to <Link className="home" to='/' >first page</Link>
         </div>
     </div>
     }
