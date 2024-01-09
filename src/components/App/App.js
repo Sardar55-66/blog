@@ -9,7 +9,7 @@ import {Routes, Route, Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import PaginationControlled from '../Pagination/Pagination';
 import CircularWithValueLabel from '../Spinner/Spinner';
-import { NoArticle } from '../No-article-error/No-article-error';
+
 import { DeleteArticle } from '../Delete-article/Delete-article';
 import { EditArticle } from '../Edit-article/Edit-article';
 import { EditProfile } from '../Edit-profile/Edit-profile';
@@ -18,8 +18,9 @@ import { SignUpForm } from '../Sign-up/Sign-up';
 import { AuthorizedList } from '../List-authorized/List-authorized';
 import { errorWhileRegistering } from '../Actions/Actions';
 import { ErrorComponent, ErrorComponents } from '../ErrorComponent/ErrorComponent';
-import { NoArticleAuthorized } from '../No-article-authorized/No-article-authorized';
+import { NoArticle, NoArticleAuthorized } from '../No-article-authorized/No-article';
 import { ArticleAuthorized } from '../Article/Article-authorized';
+import { EditedArticle } from '../Edited-article/Edited-article';
 
 function App() {
 
@@ -71,7 +72,7 @@ function App() {
                 <Link to='/'><LogOut/></Link>
                 </>
               }/>
-              <Route path='/authorized-list/articles/{slug}' element={
+              <Route path='/authorized-list/articles/{slug}/:edit?' element={
                 <>
                 <CreateArticleBtn/>
                 <HeaderUser/>
@@ -84,7 +85,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={articles.length === 0 ? <NoArticle/>: null}/>
-        <Route path='/authorized-list' element={articles.length === 0 ? <NoArticleAuthorized/>: null}/>
+        <Route path='/authorized-list' element={articles.length === 0 ? <NoArticle/>: null}/>
         <Route path='/authorized-list/:profile?' element={<EditProfile/>}/>
         <Route path='/authorized-list/:new-article?' element={<CreateArticle/>}/>
         <Route path='/' element={
@@ -95,7 +96,8 @@ function App() {
           </>
         }/>
         <Route path='/authorized-list/articles/{slug}' element={<ArticleAuthorized/>}/>
-        <Route path='/authorized-list/articles{slug}/edit' element={<EditArticle/>}/>
+        <Route path='/authorized-list/articles/{slug}/edit' element={<EditArticle/>}/>
+        <Route path='/authorized-list/articles/{slug}/edited' element={<EditedArticle/>}/>
       </Routes>
      
   {!isLoaded ? <CircularWithValueLabel/> : articles.map((article) => {

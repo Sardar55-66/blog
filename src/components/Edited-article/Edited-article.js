@@ -1,62 +1,43 @@
-import React, { useState } from "react";
-import './Article.scss';
+import React from "react";
+import './Edited-article.scss'
+
+import { useState } from "react";
+
 import '../List/List.scss'
 
 import avatar from '../../img/avatar.png';
 import heart from '../../img/heart.png';
-import redHeart from '../../img/heart-red.png';
 import { useSelector } from "react-redux";
 import { getArticle } from "../api/get-api-data";
 import BasicModal from "../Modals/Delete-article-modal";
 import { Link } from "react-router-dom";
 
 
-export const ArticleAuthorized = () => {
+export const EditedArticle = (props) => {
 
-    const articleData = useSelector(state => state.create.userArticle)
 
-    
-    const auth1 = useSelector(state => state.login.auth)
-    const auth2 = useSelector(state => state.users.auth)
+    const editedArticleData = useSelector(state => state.editA.edited)
+    const auth = useSelector(state => state.login.auth)
 
+    const [likeCount, setLikeCount] = useState(editedArticleData.article.favoritesCount)
     const [modal, setModal] = useState(false)
-    const [likesCount, setLikesCount] = useState(0)
-    const [fn, setFn] = useState(false)
+    
     
     const onClose = () => setModal(false)
     const onOpen = () => setModal(true)
     
-    console.log(articleData)
-
-
     
-    
-
     const addLikes = () => {
-
-        
-
-        const heartIcon = document.querySelector('.heart')
-        
-
-        if (auth1 || auth2 && likesCount) {
-            setLikesCount((l) => l + 1)
-            
-            heartIcon.src = redHeart
-            setFn(true)
-            setTimeout(() => {
-                return heartIcon.src = heart
-            }, 250);
-
-            
-        } 
-       
+        if (auth) {
+           return setLikeCount(l => l + 1)
+        }
     }
 
 
     
-        if (articleData) {
-        const { article } = articleData
+    
+        if (editedArticleData) {
+        const { article } = editedArticleData
               
         return (
             <div className="article article_fs full-article">
@@ -64,8 +45,8 @@ export const ArticleAuthorized = () => {
                     <div className="article__title">
                     {article.title}
                         <span className="article__likes">
-                            <img onClick={!fn ? addLikes : null} className="heart"src={heart} alt="heart"/>
-                            <span className="like-counter">{likesCount}</span>
+                            <img oncLick={addLikes} className="heart"src={heart} alt="heart"/>
+                            <span className="like-counter">{likeCount}</span>
                         </span>
                     </div>
                     <div className="article__author">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './components/App/App';
-import { addArticleSlug, addArticles, addCurrentArticle, addPage, addTags, createUser, createdArticle, editedProfile, loggingIn, loginStatusCheck, nextPage, randomAvatar, registeringError, signUp } from './components/Reducers/Reducers';
+import { addArticleSlug, addArticles, addCurrentArticle, addPage, addTags, createUser, createdArticle, editedArticle, editedProfile, loggingIn, loginStatusCheck, nextPage, randomAvatar, registeringError, signUp } from './components/Reducers/Reducers';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -23,7 +23,8 @@ const store = configureStore({
     error: registeringError,
     edit: editedProfile,
     tags: addTags,
-    create: createdArticle
+    create: createdArticle,
+    editA: editedArticle
     }
 }, applyMiddleware(thunk))
 

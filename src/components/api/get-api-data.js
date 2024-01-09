@@ -1,6 +1,6 @@
 
 import { redirect } from "react-router-dom";
-import { addLoginData, addLoginStatus, addNewUser, articlesAddAction, changePage, createdArticleData, editeProfiledata, errorWhileRegistering, getCurrentArticle, isLoaded, noLoad, randomAvatarUrl, renewPage } from "../Actions/Actions";
+import { addLoginData, addLoginStatus, addNewUser, articlesAddAction, changePage, createdArticleData, editeProfiledata, editedArticleData, errorWhileRegistering, getCurrentArticle, isLoaded, noLoad, randomAvatarUrl, renewPage } from "../Actions/Actions";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'
 import { editedArticle } from "../Reducers/Reducers";
@@ -251,7 +251,7 @@ export const deleteArticleApi = (slug) => {
 
 export const editArticleApi = (data, slug) => {
 
-    const { title, description, text } = data
+    const { editedTitle, editedDescription, editedText } = data
 
 
     return async (dispatch) => {
@@ -260,14 +260,14 @@ export const editArticleApi = (data, slug) => {
         
 
         const articleData = {
-                title: title,
-                description: description,
-                body: text,
+                title: editedTitle,
+                description: editedDescription,
+                body: editedText,
                 }
 
         
      
-        const res = await axios.post(`${url}/articles/${slug}`, 
+        const res = await axios.put(`${url}/articles/${slug}`, 
             {
                 article : articleData
             }, 
@@ -278,10 +278,11 @@ export const editArticleApi = (data, slug) => {
             }
             
           );
-            console.log(res)
-                dispatch(editedArticle(res.data))
+
+            console.log(res.data)
                 dispatch(isLoaded())
-                   
+                dispatch(editedArticleData(res.data))
+                                   
         }   
 }
 

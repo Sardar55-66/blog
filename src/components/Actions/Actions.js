@@ -19,3 +19,5 @@ export const errorWhileRegistering = (data) => ({type: 'ERROR', payload: data})
 export const editeProfiledata = (data) => ({type: 'EDIT', payload: data})
 export const addTag = (data) => ({type: 'TAG', payload: data})
 export const createdArticleData = (data) => ({type: 'CREATED', payload: data})
+
+export const editedArticleData = (data) => ({type: 'EDITA', payload: data})

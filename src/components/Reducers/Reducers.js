@@ -195,14 +195,14 @@ switch (action.type) {
 
 
 const initialState13 = {
-    editedArticle: null,
+    edited: {},
 }
 
 export const editedArticle = (state = initialState13, action) => {
     
 switch (action.type) {
     case 'EDITA':
-        return {...state, editedArticle: action.payload}
+        return {...state, edited: action.payload}
 
     default:
         return state;
