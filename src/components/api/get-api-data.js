@@ -12,9 +12,8 @@ export const getArticles = () => {
     
     return async (dispatch) => {
         dispatch(noLoad())
-        const data = await fetch('https:/blog.kata.academy/api/articles')
-        const data2 = await data.json()
-        const articles = data2.articles
+        const data = await axios.get('https:/blog.kata.academy/api/articles')
+        const articles = data.articles
         setTimeout(() => {
             dispatch(articlesAddAction(articles))
             dispatch(isLoaded())

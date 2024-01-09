@@ -27,7 +27,10 @@ function App() {
   
 
   const dispatch = useDispatch()
-  useEffect(() => {dispatch(getArticles())}, [])
+  useEffect(() => {
+    console.log('done useffect')
+    dispatch(getArticles())
+  }, [])
   
   const isLoaded = useSelector(state => state.articles.isLoaded)
   const articles = useSelector(state => state.articles.articles)
