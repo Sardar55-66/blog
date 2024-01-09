@@ -37,7 +37,7 @@ function App() {
   const createdArticle = useSelector(state => state.create.userArticle)
     const slugForCreated = createdArticle?.article.slug
 
-
+    dispatch(getArticles())
   
 
 
