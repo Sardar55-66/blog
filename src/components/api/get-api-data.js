@@ -13,7 +13,7 @@ export const getArticles = () => {
     return async (dispatch) => {
         dispatch(noLoad())
         const data = await axios.get('https:/blog.kata.academy/api/articles')
-        const articles = data.articles
+        const articles = data.data.articles
         setTimeout(() => {
             dispatch(articlesAddAction(articles))
             dispatch(isLoaded())
