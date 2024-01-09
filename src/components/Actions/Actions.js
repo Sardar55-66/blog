@@ -16,3 +16,6 @@ export const randomAvatarUrl = (data) => ({type: 'AVATAR', payload: data})
 export const addLoginData = (data) => ({type: 'LOGIN', payload: data})
 
 export const errorWhileRegistering = (data) => ({type: 'ERROR', payload: data})
+export const editeProfiledata = (data) => ({type: 'EDIT', payload: data})
+export const addTag = (data) => ({type: 'TAG', payload: data})
+export const createdArticleData = (data) => ({type: 'CREATED', payload: data})

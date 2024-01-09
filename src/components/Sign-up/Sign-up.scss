@@ -12,10 +12,28 @@
 
 .signup-form {
     width: 460px;
-    min-height: 830px;
+    min-height: 900px;
 }
 
+.active {
+    display: block;
+}
 
+.not-active {
+    display: none;
+}
+
+.added-tag {
+    width: 40%;
+    border: 1px solid #000;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: none;
+}
 
 input {
     display: block;
@@ -80,6 +98,7 @@ form {
     margin-top: 40px;
     font-size: 18px;
     height: 50px;
+    margin-bottom: 50px;
 }
 
 
@@ -91,16 +110,35 @@ form {
     border: 1px solid red;
     color: red;
     border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .delete-btn {
-    display: inline-block;
+    //display: inline-block;
     margin-right: 15px;
+}
+
+.delete-btn:hover {
+    color: #fff;
+    background-color: red;
 }
 
 .add-btn {
     border: 1px solid #1890FF;
     color: #1890FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+.add-btn:hover {
+    color: #fff;
+    background-color: #1890FF;
 }
 
 .tags-form {
@@ -109,6 +147,12 @@ form {
 
 .tags {
     width: 40%;
+    margin-right: 20px;
+    padding-left: 10px;
+}
+
+.tags-list {
+    list-style-type: none;
 }
 
 // .tags:first-child {

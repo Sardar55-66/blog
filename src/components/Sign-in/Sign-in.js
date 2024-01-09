@@ -33,9 +33,6 @@ export const SignInForm = () => {
 
     const onSubmit = async (data) => {
         
-        // dispatch(login(data))
-
-        
 
         const { emailLogin, passwordLogin } = data
 
@@ -76,7 +73,7 @@ export const SignInForm = () => {
                 dispatch(getArticles())
                 dispatch(refreshArticles())
            }, 1000);
-           
+           reset()
         }   
         
     }

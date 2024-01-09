@@ -18,7 +18,7 @@
 
 .article__header {
     display: flex;
-    height: 35px;
+    height: 60px;
     justify-content: space-between;
 }
 
@@ -64,6 +64,7 @@
 }
 
 .avatar-image {
+    margin-top: 20px;
     height: 60px;
     margin-left: 20px;
 }

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import './Header-components.scss'
-//import avatar from '../../img/avatar.png'
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getLoggendInUser, getRandomAvatar } from "../api/get-api-data";
@@ -15,15 +14,18 @@ export const HeaderLogo = () => {
 }
 
 export const CreateArticleBtn = () => {
-    return <button className="create-article-btn">
+    const authSignIn = useSelector(state => state.login.auth)
+    const authSignUp = useSelector(state => state.users.auth)
+    return <Link className="create-article-btn" to={!authSignIn ? '/signin' : '/authorized-list/new-article'}>
         Create Article
-    </button>
+    </Link>
 }
 
 export const HeaderUser = () => {
+
     const dispatch = useDispatch()
     const user = useSelector(state => state.login.loginData)
-    //const avatar = useSelector(state => state.avatar.url)
+    const editedUser = useSelector(state => state.edit.editedData)
     const token = JSON.parse(localStorage.getItem('token'))
     
 
@@ -32,13 +34,11 @@ export const HeaderUser = () => {
 
 
     const email = JSON.parse(localStorage.getItem('email'))
-    const datas = JSON.parse(localStorage.getItem(JSON.stringify(email)))
-    const img = 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconarchive.com%2Fshow%2Fincognito-animals-icons-by-iconarchive%2FBear-Avatar-icon.html&psig=AOvVaw0K_qN2RbxyywTOxX6VyfSF&ust=1704377150056000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCIigtOyxwYMDFQAAAAAdAAAAABAI'
     
     
    return <div className="header__user">
-        <span className="username">{user?.user.username}</span>
-        <Link to ="/profile"><img id='avatars' src={avatar} alt="avatar"/></Link>
+        <span className="username">{editedUser?.username ? editedUser?.username : user?.user.username}</span>
+        <Link to ="/authorized-list/profile"><img id='avatars' src={avatar} alt="avatar"/></Link>
     </div>
 }
 

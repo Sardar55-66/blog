@@ -6,6 +6,9 @@ import Modal from '@mui/material/Modal';
 import logo from '../../img/exclamation-circle.png';
 
 import './Delete-article-modal.scss'
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteArticleApi, getArticles } from '../api/get-api-data';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
   position: 'absolute',
@@ -20,6 +23,10 @@ const style = {
 };
 
 export default function BasicModal(props) {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const articleData = useSelector(state => state.create.userArticle)
 
   return (
     <div>
@@ -37,14 +44,17 @@ export default function BasicModal(props) {
             <button 
             className='yes-btn'
             onClick={() => {
-
+                dispatch(deleteArticleApi(articleData.article.slug))
+                navigate('/authorized-list')
+                dispatch(getArticles())
+                
                 props.onClose()
              }}
             >Yes?</button>
             <button 
             className='no-btn'
             onClick={() => {
-
+              console.log('no')
                props.onClose()
             }}
             >No?</button>

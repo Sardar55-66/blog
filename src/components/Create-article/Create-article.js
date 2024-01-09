@@ -1,48 +1,157 @@
-import React from "react";
-import './Create-article.scss'
 
+import { Controller, useFieldArray, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import './Create-article.scss'
+import { createArticleApi } from "../api/get-api-data";
+import { useState } from "react";
+import { redirect, useNavigate } from "react-router-dom";
 
 export const CreateArticle = () => {
 
+    const [tags, setTags] = useState([])
+    const navigate = useNavigate()
+    const articles = useSelector(state => state.create.userArticle)
+    const slug = articles?.article.slug
+
+    
+    
+
+    const {
+        register,
+        formState : { errors, isValid },
+        handleSubmit,
+        reset,
+        setError,
+        watch,
+        resetField,
+        clearErrors,
+        control
+    } = useForm({
+        criteriaMode: 'onBlur',
+    })
+    
+    const tagValue = document.querySelector('.tag-value')
+    const dispatch = useDispatch()   
+
+    
+
+
+    const onSubmit = (data) => {
+        if (isValid ) {
+            dispatch(createArticleApi(data, tags))
+
+        }
+        
+            return navigate('/authorized-list/articles/{slug}')
+        
+        
+    }
+
+
+
+
     return (
         <div className="create-article">
-            <form>
+            <h2 className="edit-article-title">Create new article</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
             <label>
                 <span className="title_text">Title</span>
-                <input className="title" type="text"/>
+                <input {...register('title', {
+                    required: 'Поле обязательно к заполнению!',
+                    minLength: {
+                        value: 3,
+                        message: 'Символов должно быть не меньше 3!'
+                    },
+                    maxLength: {
+                        value: 10,
+                        message: 'Символов должно быть не больше 10!'
+                    }
+                })} className="title" type="text"/>
             </label>
+            <div style={{height: 40, color: 'red'}}>{errors?.title && <p>{errors.title.message}</p>}</div> 
 
             <label>
                 <span className="description_text">Short description</span>
-                <input className="description" type="text"/>
+                <input {...register('description', {
+                    required: 'Поле обязательно к заполнению!',
+                    minLength: {
+                        value: 5,
+                        message: 'Символов должно быть не меньше 5!'
+                    },
+                    maxLength: {
+                        value: 20,
+                        message: 'Символов должно быть не больше 20!'
+                    }
+                })} className="description" type="text"/>
             </label>
+            <div style={{height: 40, color: 'red'}}>{errors?.description && <p>{errors.description.message}</p>}</div> 
 
             <label>
                 <span className="text_text">Text</span>
-                <input className="text" type="text"/>
+                <input {...register('text', {
+                    required: 'Поле обязательно к заполнению!',
+                    minLength: {
+                        value: 5,
+                        message: 'Символов должно быть не меньше 5!'
+                    },
+                    maxLength: {
+                        value: 30,
+                        message: 'Символов должно быть не больше 30!'
+                    }
+                })} className="text" type="text"/>
             </label>
+            <div style={{height: 40, color: 'red'}}>{errors?.text && <p>{errors.text.message}</p>}</div> 
 
             <label className="tags-form">
             <span className="tags_text">Tags</span>
-                <div className="tags-first-container">
-                <input className="tags" type="text"/>
-                <button className="delete-btn">Delete</button>
-                </div>
 
-                <div className="tags-second-container">
-                <input className="tags" type="text"/>
-                <button className="delete-btn">Delete</button>
-                </div>
+               {tags.map((tag, index) => {
+                
+                return <li key={index} className="tags-list">
+                            <div className="tags-second-container">
+                                <input className="tags" value={tag} disabled={true}/>                                                                
+                            <button onClick={() => {
+                                const id = tags.indexOf(tag)
+                                setTags([...tags.slice(0, id), ...tags.slice(id + 1)])
+                            }} type="button" className="delete-btn">Delete</button>
+                            </div>
+                        </li>
+               })}
+ 
 
-                <div className="tags-third-container">
+            <div className="tags-first-container">
+                <input {...register('tagsData')} className="tags tag-value hiden-input not-active" type="text" /> 
+                <button onClick={() => {
+                    const inpuField = document.querySelector('.hiden-input')
+                    const hidenDeleteBtn = document.querySelector('.hiden-btn')
                     
-                <input className="tags" type="text"/>
-                <button className="delete-btn">Delete</button>
-                <button className="add-btn">Add tag</button>
-                </div>
-            </label>
+                    
 
-            <button className="send-btn">Send</button>
+                        if (!inpuField.classList.contains('not-active') && !hidenDeleteBtn.classList.contains('not-active') && tagValue?.value) {
+                            setTags([...tags, tagValue.value])
+                            tagValue.value = ''
+                        }
+
+                        
+                        
+                    inpuField.classList.remove('not-active')
+                    hidenDeleteBtn.classList.remove('not-active')
+                    }} type="button" className="add-btn hidde-addtag-btn">Add tag</button>
+                <button type="button" onClick={() => {
+                    const inpuField = document.querySelector('.hiden-input')
+                    const hidenDeleteBtn = document.querySelector('.hiden-btn')
+                    
+                    inpuField.classList.add('not-active')
+                    hidenDeleteBtn.classList.add('not-active')
+                    
+                       return clearErrors('tagsData')
+                    
+                }} className="delete-btn hiden-btn not-active">Delete</button>
+            </div>
+            </label>
+            <div style={{height: 40, color: 'red'}}>{errors?.tag && <p>{errors.tag.message}</p>}</div> 
+
+            <input type="submit" className="send-btn" value='Send'/>
         </form>
         </div>
     )

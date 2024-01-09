@@ -12,7 +12,7 @@ export const Article = (props) => {
     const slug = props.slug.join()
     
     const article = useSelector(state => state.article.article)
-    console.log(article)
+    
     if (article) {
         return article.map((el) => {
 

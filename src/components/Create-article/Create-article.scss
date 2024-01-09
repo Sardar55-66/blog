@@ -1,6 +1,6 @@
 .create-article {
     width: 938px;
-    height: 701px;
+    min-height: 701px;
     padding: 48px, 32px, 48px, 32px;
     margin: 0 auto;
     background-color: #FFFFFF;
@@ -8,6 +8,10 @@
     justify-content: center;
     padding-top: 15px;
     border-radius: 6px;
+}
+
+.edit-article-title {
+    margin-top: 40px;
 }
 
 .edit-profile {
@@ -87,6 +91,14 @@ form {
 
 .tags {
     width: 40%;
+    margin-right: 20px;
+}
+
+.added.tag {
+    width: 40%;
+    margin-right: 20px;
+    border: 1px solid #000;
+    border-radius: 6px;
 }
 
 // .tags:first-child {

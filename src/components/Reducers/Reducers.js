@@ -90,13 +90,13 @@ export const addPage = (state = initialState4, action) => {
 
 const initialState6 = {
     userInfo: null,
-    isSignedUp: false
+    auth: false
 }
 
 export const createUser = (state = initialState6, action) => {
     switch (action.type) {
         case 'ADD-USER':
-            return {...state, isSignedUp: true, userInfo: action.payload}
+            return {...state, auth: true, userInfo: action.payload}
     
         default:
             return state;
@@ -118,13 +118,14 @@ export const randomAvatar = (state = initialState7, action) => {
 }
 
 const initialState8 = {
-    loginData: null
+    loginData: null,
+    auth: false
 }
 
 export const loggingIn = (state = initialState8, action) => {
     switch (action.type) {
         case 'LOGIN':
-            return {...state, loginData: action.payload}
+            return {...state, auth: true, loginData: action.payload}
     
         default:
             return state;
@@ -145,4 +146,66 @@ export const registeringError = (state = initialState9, action) => {
     }
 }
 
+const initialState10 = {
+    editedData: null
+}
+
+export const editedProfile = (state = initialState10, action) => {
+switch (action.type) {
+    case 'EDIT':
+        return {...state, editedData: action.payload}
+
+    default:
+        return state;
+}
+}
+
+
+const initialState11 = {
+    tags: []
+}
+
+export const addTags = (state = initialState11, action) => {
+switch (action.type) {
+    case 'TAG':
+        return {...state, tags: [...state.tags, action.payload]}
+
+    default:
+        return state;
+}
+}
+
+
+
+const initialState12 = {
+    userArticle: null,
+}
+
+export const createdArticle = (state = initialState12, action) => {
+    
+switch (action.type) {
+    case 'CREATED':
+        return {...state, userArticle: action.payload}
+
+    default:
+        return state;
+}
+}
+
+
+
+const initialState13 = {
+    editedArticle: null,
+}
+
+export const editedArticle = (state = initialState13, action) => {
+    
+switch (action.type) {
+    case 'EDITA':
+        return {...state, editedArticle: action.payload}
+
+    default:
+        return state;
+}
+}
 

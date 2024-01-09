@@ -19,6 +19,7 @@ import { AuthorizedList } from '../List-authorized/List-authorized';
 import { errorWhileRegistering } from '../Actions/Actions';
 import { ErrorComponent, ErrorComponents } from '../ErrorComponent/ErrorComponent';
 import { NoArticleAuthorized } from '../No-article-authorized/No-article-authorized';
+import { ArticleAuthorized } from '../Article/Article-authorized';
 
 function App() {
 
@@ -32,6 +33,8 @@ function App() {
   const slug = useSelector(state => state.slug.slug)
   const isSignedUp = useSelector(state => state.users.isSignedUp)
   const errorMsg = useSelector(state => state.error.errorMessage)
+  const createdArticle = useSelector(state => state.create.userArticle)
+    const slugForCreated = createdArticle?.article.slug
 
 
   
@@ -53,30 +56,22 @@ function App() {
           </div>
         <div className='header__info'>
           <Routes>
-            <Route path='/' element={
+            <Route path='/:signin?' element={
               <>
               <SignUp/>
               <SignIn/>
               </> 
               
             }/>
-
-          <Route path='/signin' element={
-              <>
-              <SignUp/>
-              <SignIn/>
-              </> 
-              
-            }/>     
             
-              <Route path='/authorized-list' element={
+              <Route path='/authorized-list/:profile?' element={
                 <>
                 <CreateArticleBtn/>
                 <HeaderUser/>
                 <Link to='/'><LogOut/></Link>
                 </>
               }/>
-              <Route path='/profile' element={
+              <Route path='/authorized-list/articles/{slug}' element={
                 <>
                 <CreateArticleBtn/>
                 <HeaderUser/>
@@ -90,7 +85,8 @@ function App() {
       <Routes>
         <Route path='/' element={articles.length === 0 ? <NoArticle/>: null}/>
         <Route path='/authorized-list' element={articles.length === 0 ? <NoArticleAuthorized/>: null}/>
-        <Route path='/profile' element={<EditProfile/>}/>
+        <Route path='/authorized-list/:profile?' element={<EditProfile/>}/>
+        <Route path='/authorized-list/:new-article?' element={<CreateArticle/>}/>
         <Route path='/' element={
           <>
           <CreateArticleBtn/>
@@ -98,6 +94,8 @@ function App() {
           <Link to='/'><LogOut/></Link>
           </>
         }/>
+        <Route path='/authorized-list/articles/{slug}' element={<ArticleAuthorized/>}/>
+        <Route path='/authorized-list/articles{slug}/edit' element={<EditArticle/>}/>
       </Routes>
      
   {!isLoaded ? <CircularWithValueLabel/> : articles.map((article) => {
@@ -119,6 +117,7 @@ function App() {
    </Routes>
   })}
 <Routes>
+
     <Route path='/signup' element={
     <>
     <SignUpForm/>

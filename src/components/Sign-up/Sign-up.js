@@ -133,13 +133,7 @@ export const SignUpForm = () => {
                         <div style={{height: 40, color: 'red'}}>{errors?.checkbox && errors?.checkbox?.message && <p style={{color: 'red'}}>{errors.checkbox.message}</p>}</div>  
 
                     <input type="submit"  className="send-btn"  value='Create'/>
-                    {/* <button className="send-btn" onClick={() => {
-                        setValue('name', 'kate11');
-                        setValue('mail', 'kate@kat.kat11');
-                        setValue('pass', '121')
-                        setValue('repeatedPassword', '121')
-                        
-                    }}>fill values</button> */}
+                
 
                 <div className="have-account">Already have an account? <Link to='/signin'>Sign In.</Link></div>
             </form>
