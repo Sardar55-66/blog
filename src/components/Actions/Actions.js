@@ -1,4 +1,4 @@
-export const articlesAddAction = (data) => ({type: 'ADD', payload: data})
+export const articlesAddAction = (arr) => ({type: 'ADD', payload: arr})
 export const changePage = (data) => ({type: 'NEXT-PAGE', payload: data})
 export const noLoad = () => ({type: 'NOLOAD'})
 export const renewPage= (data) => ({type: 'REFRESH', payload: data})
