@@ -11,7 +11,7 @@ const url = 'https://blog.kata.academy/api'
 export const getArticles = () => {
     
     return async (dispatch) => {
-        dispatch(noLoad())
+        
         const data = await axios.get('https:/blog.kata.academy/api/articles')
         setTimeout(() => {
             dispatch(articlesAddAction(data.data.articles))
