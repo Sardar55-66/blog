@@ -28,9 +28,15 @@ function App() {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    console.log('done useffect')
     //dispatch(getArticles())
     dispatch(nextPage())
+  }, [])
+
+  
+  
+  useEffect(() => {
+    dispatch(getArticles())
+    //dispatch(nextPage())
   }, [])
   
   const isLoaded = useSelector(state => state.addA.isLoaded)
