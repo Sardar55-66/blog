@@ -32,9 +32,8 @@ function App() {
     dispatch(getArticles())
   }, [])
   
-  const isLoaded = useSelector(state => state.articles.isLoaded)
-  const article = useSelector(state => state.articles.articles)
-  const articles = article.slice(0, 5)
+  const isLoaded = useSelector(state => state.addA.isLoaded)
+  const articles = useSelector(state => state.addA.articles)
   const slug = useSelector(state => state.slug.slug)
   const isSignedUp = useSelector(state => state.users.isSignedUp)
   const errorMsg = useSelector(state => state.error.errorMessage)
