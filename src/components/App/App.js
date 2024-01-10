@@ -88,7 +88,7 @@ function App() {
       </header>
       
       <Routes>
-        <Route path='/' element={<ListOfArticles data={articles}/>}/>
+        {/* <Route path='/' element={<ListOfArticles data={articles}/>}/> */}
         <Route path='/authorized-list' element={articles.length === 0 ? <NoArticle/>: null}/>
         <Route path='/authorized-list/:profile?' element={<EditProfile/>}/>
         <Route path='/authorized-list/:new-article?' element={<CreateArticle/>}/>
