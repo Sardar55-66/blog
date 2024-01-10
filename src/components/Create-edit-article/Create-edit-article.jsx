@@ -11,7 +11,6 @@ export function CreateArticle() {
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
   const articles = useSelector((state) => state.create.userArticle);
-  const slug = articles?.article.slug;
 
   const {
     register,
