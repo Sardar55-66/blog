@@ -3,7 +3,7 @@ import { Article } from '../Article/Article';
 import { CreateArticle } from '../Create-article/Create-article';
 import { HeaderLogo, CreateArticleBtn, HeaderUser, LogOut, SignIn, SignUp } from '../Header-components/Header-components';
 import { ListOfArticles } from '../List/List';
-import { getArticles } from '../api/get-api-data';
+import { getArticles, nextPage } from '../api/get-api-data';
 import './App.css';
 import {Routes, Route, Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -29,7 +29,8 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     console.log('done useffect')
-    dispatch(getArticles())
+    //dispatch(getArticles())
+    dispatch(nextPage())
   }, [])
   
   const isLoaded = useSelector(state => state.addA.isLoaded)
