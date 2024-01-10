@@ -28,16 +28,11 @@ function App() {
 
   const dispatch = useDispatch()
   useEffect(() => {
-    //dispatch(getArticles())
+    dispatch(getArticles())
     dispatch(nextPage())
   }, [])
 
   
-  
-  useEffect(() => {
-    dispatch(getArticles())
-    //dispatch(nextPage())
-  }, [])
   
   const isLoaded = useSelector(state => state.addA.isLoaded)
   const articles = useSelector(state => state.addA.articles)
@@ -93,7 +88,7 @@ function App() {
       </header>
       
       <Routes>
-        <Route path='/' element={articles.length === 0 ? <NoArticle/>: null}/>
+        <Route path='/' element={<ListOfArticles/>}/>
         <Route path='/authorized-list' element={articles.length === 0 ? <NoArticle/>: null}/>
         <Route path='/authorized-list/:profile?' element={<EditProfile/>}/>
         <Route path='/authorized-list/:new-article?' element={<CreateArticle/>}/>
