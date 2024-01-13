@@ -111,7 +111,7 @@ function SignUpForm() {
           <input
             {...register('repeatedPassword', {
               required: 'Поле обязательно к заполнению!',
-              validate: (pass) => pass === firstPass && pass.length === firstPass.length || setError('password', { type: 'manual', message: 'Пароли не совпадают!' }) || clearErrors('password'),
+              validate: (pass) => pass === firstPass && pass.length === firstPass.length || setError('pass', { type: 'manual', message: 'Пароли не совпадают!' }) || clearErrors('password'),
               minLength: {
                 value: 2,
                 message: 'Символов должно быть не меньше 6!',
@@ -125,7 +125,7 @@ function SignUpForm() {
             type="password"
           />
         </label>
-        <div style={{ height: 40, color: 'red' }}>{errors?.pass && errors?.pass?.message && <p style={{ margin: 0, color: 'red' }}>{errors.pass.message}</p>}</div>
+        <div style={{ height: 40, color: 'red' }}>{errors?.pass && errors?.pass.message && <p style={{ margin: 0, color: 'red' }}>{errors.pass.message}</p>}</div>
 
         {/* чекбокс */}
         <label className="signup-checkbox">
