@@ -101,7 +101,7 @@ function App() {
         <Route path="/authorized-list/articles/{slug}/edited" element={<EditedArticle />} />
       </Routes>
 
-      {!isLoaded ? <CircularWithValueLabel /> : articles.map((article) => (
+      {!isLoaded ? null : articles.map((article) => (
         <Routes>
           <Route
             path="/"
