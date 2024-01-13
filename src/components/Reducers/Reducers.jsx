@@ -92,21 +92,6 @@ export const addPage = (state = initialState4, action) => {
   }
 };
 
-// const initialState5 = {
-//     userInfo: [],
-//     isSignedUp: false
-// }
-
-// export const signUp = (state = initialState5, action) => {
-//     switch (action.type) {
-//         case 'SIGNUP':
-//             return {...state, isSignedUp: true, userInfo: [action.payload]}
-
-//         default:
-//             return state;
-//     }
-// }
-
 const initialState6 = {
   userInfo: null,
   auth: false,

@@ -7,15 +7,16 @@ import './Pagination.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import { nextPage } from '../api/get-api-data';
+import { getArticles, nextPage } from '../api/get-api-data';
 import { addPageValue } from '../Actions/Actions';
 
 export default function PaginationControlled() {
   const dispatch = useDispatch();
 
   const page = useSelector((state) => state.page.page);
-  const handleChange = (event, value) => {
+  const handleChange = (_, value) => {
     dispatch(nextPage());
+    dispatch(getArticles());
     dispatch(addPageValue(value));
   };
 
@@ -30,4 +31,4 @@ export default function PaginationControlled() {
       <Pagination count={10} page={page} onChange={handleChange} />
     </Stack>
   );
-}
+};

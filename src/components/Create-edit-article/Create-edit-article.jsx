@@ -165,15 +165,13 @@ export function EditArticle() {
   const [tags, setTags] = useState([]);
   const navigate = useNavigate();
   const articles = useSelector((state) => state.create.userArticle);
-  const editedArticle = useSelector((state) => state.editA.edited);
-  const slug = articles?.article.slug;
+  const slug = articles.article.slug;
 
   const {
     register,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
     clearErrors,
-    control,
   } = useForm({
     criteriaMode: 'onBlur',
   });
@@ -182,12 +180,8 @@ export function EditArticle() {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log(data);
-    if (isValid) {
-      dispatch(editArticleApi(data, slug));
-    }
-
-    return navigate('/authorized-list/articles/{slug}/edited');
+    dispatch(editArticleApi(data, slug));
+     return navigate('/authorized-list/articles/{slug}/edited');
   };
 
   return (
