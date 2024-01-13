@@ -26,13 +26,10 @@ import { Article } from '../Article/Article';
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(nextPage());
-  }, []);
-
+  
   useEffect(() => {
     dispatch(getArticles());
-  }, []);
+  }, [dispatch]);
 
   const isLoaded = useSelector((state) => state.addA.isLoaded);
   const articles = useSelector((state) => state.addA.articles);
