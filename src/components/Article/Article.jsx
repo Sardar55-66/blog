@@ -13,7 +13,7 @@ export const Article = () => {
   if (article) {
     return article.map((el) => {
       const {
-        title, tagList, favoritesCount, author, createdAt, description, body,
+        title, tagList, author, favouritesCount, createdAt, description, body,
       } = el.article;
 
       return (
@@ -23,7 +23,7 @@ export const Article = () => {
               {title}
               <span className="article__likes">
                 <img className="heart" src={heart} alt="heart" />
-                <span className="like-counter">{favoritesCount}</span>
+                <span className="like-counter">{favouritesCount}</span>
               </span>
             </div>
             <div className="article__author">

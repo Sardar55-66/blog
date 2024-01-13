@@ -7,7 +7,6 @@ import { getArticle } from '../api/get-api-data';
 
 function ListOfArticles(props) {
   const dispatch = useDispatch();
-
   const article = props.data;
   const { author } = article;
 

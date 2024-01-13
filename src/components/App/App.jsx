@@ -85,7 +85,7 @@ function App() {
         <Route path="/" element={articles.length === 0 ? <NoArticle /> : null} />
         <Route path="/authorized-list" element={articles.length === 0 ? <NoArticle /> : null} />
         <Route path="/authorized-list/:profile?" element={<EditProfile />} />
-        <Route path="/authorized-list/:new-article?" element={<CreateArticle />} />
+        <Route path="/authorized-list/new-article" element={<CreateArticle />} />
         <Route
           path="/"
           element={(
@@ -101,13 +101,13 @@ function App() {
         <Route path="/authorized-list/articles/{slug}/edited" element={<EditedArticle />} />
       </Routes>
 
-      {!isLoaded ? null : articles.map((article) => (
+      {!isLoaded ? null : articles.map((article, idx) => (
         <Routes>
           <Route
             path="/"
             element={(
               <>
-                <ListOfArticles key={article.slug} data={article} />
+                <ListOfArticles key={article.slug} data={article} id={idx} />
                 <PaginationControlled />
 
               </>
@@ -117,7 +117,7 @@ function App() {
             path="/authorized-list"
             element={(
               <>
-                <AuthorizedList data={article} />
+                <AuthorizedList data={article} id={idx} />
                 <PaginationControlled />
               </>
     )}

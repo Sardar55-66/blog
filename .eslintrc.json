@@ -22,6 +22,8 @@
         "react/jsx-filename-extension": "off",
         "eol-last": ["error", "never"],
         "no-mixed-operators": "off",
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "no-return-assign": "off",
+        "prefer-destructuring": "false"
     }
 }

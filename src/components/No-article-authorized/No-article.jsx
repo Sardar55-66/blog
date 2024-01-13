@@ -13,7 +13,7 @@ function NoArticle() {
         <div className="noarticle__tet">
           Sorry, no article found... go back to
           {' '}
-          <Link className="home" to="/authorized-list/">first page</Link>
+          <Link className="home" to="/authorized-list">first page</Link>
         </div>
       </div>
     );
