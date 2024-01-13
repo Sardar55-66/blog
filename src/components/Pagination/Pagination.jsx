@@ -31,4 +31,4 @@ export default function PaginationControlled() {
       <Pagination count={10} page={page} onChange={handleChange} />
     </Stack>
   );
-};
+}
