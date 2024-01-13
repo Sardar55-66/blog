@@ -7,7 +7,7 @@ import {
   HeaderLogo, CreateArticleBtn, HeaderUser, LogOut, SignIn, SignUp,
 } from '../Header-components/Header-components';
 import ListOfArticles from '../List/List';
-import { getArticles, nextPage } from '../api/get-api-data';
+import { getArticles } from '../api/get-api-data';
 import './App.scss';
 
 import PaginationControlled from '../Pagination/Pagination';
@@ -26,7 +26,6 @@ import { Article } from '../Article/Article';
 
 function App() {
   const dispatch = useDispatch();
-  
   useEffect(() => {
     dispatch(getArticles());
   }, [dispatch]);
