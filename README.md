@@ -1,4 +1,4 @@
-blog : https://react-core-kata-academy-blog.vercel.app/
+blog : https://katablog.vercel.app/
 
 
 # Getting Started with Create React App
