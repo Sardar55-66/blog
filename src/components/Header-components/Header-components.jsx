@@ -15,7 +15,7 @@ export function HeaderLogo() {
 
 export function CreateArticleBtn() {
   const authSignIn = useSelector((state) => state.login.auth);
-  const authSignUp = useSelector((state) => state.users.auth);
+
   return (
     <Link className="create-article-btn" to={!authSignIn ? '/signin' : '/authorized-list/new-article'}>
       Create Article
@@ -31,8 +31,6 @@ export function HeaderUser() {
 
   useEffect(() => { dispatch(getLoggendInUser()); }, []);
   useEffect(() => { dispatch(getLoggendInUser()); }, [token]);
-
-  const email = JSON.parse(localStorage.getItem('email'));
 
   return (
     <div className="header__user">

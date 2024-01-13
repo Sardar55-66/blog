@@ -7,7 +7,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk';
 import {
-  addArticleSlug, addArticles, addArticlesList, addCurrentArticle, addPage, addTags, createUser, createdArticle, editedArticle, editedProfile, loggingIn, loginStatusCheck, nextPage, randomAvatar, registeringError, signUp,
+  addArticleSlug, addArticles, addArticlesList,
+  addCurrentArticle, addPage, addTags, createUser,
+  createdArticle, editedArticle, editedProfile,
+  loggingIn, randomAvatar, registeringError,
 } from './components/Reducers/Reducers';
 import App from './components/App/App';
 

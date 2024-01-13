@@ -1,10 +1,12 @@
+// eslint-disable jsx-props-no-spreading
+// eslint quotes: ["error", "double"]
 import React from 'react';
 import './Edit-profile.scss';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { editedProfile } from '../api/get-api-data';
 
-export function EditProfile() {
+function EditProfile() {
   const dispatch = useDispatch();
 
   const {
@@ -25,9 +27,10 @@ export function EditProfile() {
     <div className=" create-article edit-profile">
       <h2 className="edit-article-title">Edit Profile</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <label>
+        <label htmlFor="username">
           <span className="title_text">Username</span>
           <input
+            id="username"
             {...register('editedName', {
               required: 'Поле обязательно к заполнению!',
               minLength: {
@@ -45,9 +48,10 @@ export function EditProfile() {
         </label>
         <div style={{ height: 40 }}>{errors?.editedName && <p style={{ margin: 0, color: 'red' }}>{errors.editedName.message}</p>}</div>
 
-        <label>
+        <label htmlFor="email">
           <span className="description_text">Email Address</span>
           <input
+            id="email"
             {...register('editedMail', {
               required: 'Поле обязательно к заполнению!',
               pattern: {
@@ -61,9 +65,10 @@ export function EditProfile() {
         </label>
         <div style={{ height: 40, color: 'red' }}>{errors?.editedMail && errors?.editedMail?.message && <p style={{ margin: 0, color: 'red' }}>{errors.editedMail.message}</p>}</div>
 
-        <label>
+        <label htmlFor="pass">
           <span className="text_text">New Password</span>
           <input
+            id="pass"
             {...register('editedPass', {
               required: 'Поле обязательно к заполнению!',
               minLength: {
@@ -81,9 +86,9 @@ export function EditProfile() {
         </label>
         <div style={{ height: 40, color: 'red' }}>{errors?.editedPass && errors?.editedPass?.message && <p style={{ margin: 0, color: 'red' }}>{errors.editedPass.message}</p>}</div>
 
-        <label>
+        <label htmlFor="img">
           <span className="text_text">Avatar Image (url)</span>
-          <input {...register('editedAvatarImage')} className="text" type="url" />
+          <input id="img" {...register('editedAvatarImage')} className="text" type="url" />
         </label>
         <div style={{ height: 40, color: 'red' }}>{errors?.pass && errors?.pass?.message && <p style={{ margin: 0, color: 'red' }}>{errors.pass.message}</p>}</div>
 
@@ -92,3 +97,5 @@ export function EditProfile() {
     </div>
   );
 }
+
+export default EditProfile;

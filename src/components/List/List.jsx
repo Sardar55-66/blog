@@ -1,16 +1,15 @@
 import React from 'react';
 import './List.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import heart from '../../img/heart.png';
 import { getArticle } from '../api/get-api-data';
 
-export function ListOfArticles(props) {
+function ListOfArticles(props) {
   const dispatch = useDispatch();
 
   const article = props.data;
   const { author } = article;
-  const slug = useSelector((state) => state.slug.slug);
 
   return (
     <div className="article article_fs">
@@ -36,3 +35,5 @@ export function ListOfArticles(props) {
     </div>
   );
 }
+
+export default ListOfArticles;

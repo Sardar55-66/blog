@@ -8,7 +8,7 @@ import {
 } from '../api/get-api-data';
 import { addNewUser } from '../Actions/Actions';
 
-export function SignInForm() {
+function SignInForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,7 +18,6 @@ export function SignInForm() {
     handleSubmit,
     reset,
     setError,
-    watch,
     clearErrors,
   } = useForm({
     criteriaMode: 'onBlur',
@@ -112,3 +111,5 @@ export function SignInForm() {
     </div>
   );
 }
+
+export default SignInForm;

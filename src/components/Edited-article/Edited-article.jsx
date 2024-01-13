@@ -5,12 +5,10 @@ import '../List/List.scss';
 
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import avatar from '../../img/avatar.png';
 import heart from '../../img/heart.png';
-import { getArticle } from '../api/get-api-data';
 import BasicModal from '../Modals/Delete-article-modal';
 
-export function EditedArticle(props) {
+function EditedArticle() {
   const editedArticleData = useSelector((state) => state.editA.edited);
   const auth = useSelector((state) => state.login.auth);
 
@@ -24,6 +22,7 @@ export function EditedArticle(props) {
     if (auth) {
       return setLikeCount((l) => l + 1);
     }
+    return auth;
   };
 
   if (editedArticleData) {
@@ -52,9 +51,7 @@ export function EditedArticle(props) {
           {modal ? <BasicModal open={modal} onClose={onClose} /> : null}
           <Link to="/authorized-list/articles/{slug}/edit" type="button" className="add-btn">Edit</Link>
         </div>
-        {article.tagList.map((tag, id) => {
-          <div key={id} className="article__tag full-articles-tag">{tag}</div>;
-        })}
+        {article.tagList.map((tag, id) => <div key={id} className="article__tag full-articles-tag">{tag}</div>)}
         <div className="article__descr">
           {article.description}
         </div>
@@ -71,3 +68,5 @@ export function EditedArticle(props) {
     );
   }
 }
+
+export default EditedArticle;

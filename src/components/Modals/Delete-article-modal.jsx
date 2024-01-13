@@ -2,12 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import logo from '../../img/exclamation-circle.png';
-
-import './Delete-article-modal.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteArticleApi, getArticles } from '../api/get-api-data';
 import { useNavigate } from 'react-router-dom';
+import logo from '../../img/exclamation-circle.png';
+import './Delete-article-modal.scss';
+import { deleteArticleApi, getArticles } from '../api/get-api-data';
 
 const style = {
   position: 'absolute',

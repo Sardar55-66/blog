@@ -3,7 +3,7 @@ import './No-article-authorized.scss';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-export function NoArticle() {
+function NoArticle() {
   const auth1 = useSelector((state) => state.login.auth);
   const auth2 = useSelector((state) => state.users.auth);
 
@@ -28,3 +28,5 @@ export function NoArticle() {
     </div>
   );
 }
+
+export default NoArticle;

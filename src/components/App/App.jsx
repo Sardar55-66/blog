@@ -1,3 +1,4 @@
+// eslint-disable
 import { React, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,22 +6,22 @@ import { CreateArticle, EditArticle } from '../Create-edit-article/Create-edit-a
 import {
   HeaderLogo, CreateArticleBtn, HeaderUser, LogOut, SignIn, SignUp,
 } from '../Header-components/Header-components';
-import { ListOfArticles } from '../List/List';
+import ListOfArticles from '../List/List';
 import { getArticles, nextPage } from '../api/get-api-data';
 import './App.scss';
 
 import PaginationControlled from '../Pagination/Pagination';
 import CircularWithValueLabel from '../Spinner/Spinner';
 
-import { EditProfile } from '../Edit-profile/Edit-profile';
-import { SignInForm } from '../Sign-in/Sign-in';
-import { SignUpForm } from '../Sign-up/Sign-up';
-import { AuthorizedList } from '../List-authorized/List-authorized';
+import EditProfile from '../Edit-profile/Edit-profile';
+import SignInForm from '../Sign-in/Sign-in';
+import SignUpForm from '../Sign-up/Sign-up';
+import AuthorizedList from '../List-authorized/List-authorized';
 
-import { ErrorComponent } from '../ErrorComponent/ErrorComponent';
-import { NoArticle } from '../No-article-authorized/No-article';
+import ErrorComponent from '../ErrorComponent/ErrorComponent';
+import NoArticle from '../No-article-authorized/No-article';
 import ArticleAuthorized from '../Article/Article-authorized';
-import { EditedArticle } from '../Edited-article/Edited-article';
+import EditedArticle from '../Edited-article/Edited-article';
 import { Article } from '../Article/Article';
 
 function App() {

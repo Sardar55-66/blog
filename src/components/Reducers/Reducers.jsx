@@ -9,7 +9,11 @@ export const addArticlesList = (state = initialStateForArticles, action) => {
   switch (action.type) {
     case 'ADD':
       return {
-        ...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles: [...action.payload.slice(state.start, state.end)],
+        ...state,
+        isLoaded: true,
+        start: state.start + 5,
+        end: state.end + 5,
+        articles: [...action.payload.slice(state.start, state.end)],
       };
 
     default:
@@ -29,7 +33,11 @@ export const addArticles = (state = initialState, action) => {
   switch (action.type) {
     case 'NEXT-PAGE':
       return {
-        ...state, isLoaded: true, start: state.start + 5, end: state.end + 5, articles: [...action.payload.slice(state.start, state.end)],
+        ...state,
+        isLoaded: true,
+        start: state.start + 5,
+        end: state.end + 5,
+        articles: [...action.payload.slice(state.start, state.end)],
       };
     case 'NOLOAD':
       return { ...state, isLoaded: false };

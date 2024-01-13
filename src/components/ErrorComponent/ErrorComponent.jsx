@@ -1,13 +1,13 @@
 import React from 'react';
 import { Alert, Space } from 'antd';
 import './ErrorComponent.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const onClose = (e) => {
+const onClose = () => {
 
 };
 
-export function ErrorComponent(props) {
+function ErrorComponent(props) {
   const errorText = props.error;
   const navigate = useNavigate();
 
@@ -31,3 +31,5 @@ export function ErrorComponent(props) {
     </>
   );
 }
+
+export default ErrorComponent;

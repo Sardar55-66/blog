@@ -14,7 +14,7 @@ export default function PaginationControlled() {
   const dispatch = useDispatch();
 
   const page = useSelector((state) => state.page.page);
-    const handleChange = (event, value) => {
+  const handleChange = (event, value) => {
     dispatch(nextPage());
     dispatch(addPageValue(value));
   };

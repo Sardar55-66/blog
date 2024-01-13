@@ -1,6 +1,9 @@
 import axios from 'axios';
 import {
-  addLoginData, addLoginStatus, addNewUser, articlesAddAction, changePage, createdArticleData, editeProfiledata, editedArticleData, errorWhileRegistering, getCurrentArticle, isLoaded, noLoad, randomAvatarUrl, renewPage,
+  addLoginData, addNewUser, articlesAddAction,
+  changePage, createdArticleData, editeProfiledata,
+  editedArticleData, getCurrentArticle, isLoaded,
+  noLoad, renewPage,
 } from '../Actions/Actions';
 
 const url = 'https://blog.kata.academy/api';
@@ -76,6 +79,7 @@ export const registerUser = (data) => {
         dispatch(addNewUser(userData));
         dispatch(isLoaded());
       } else if (userData.errors) {
+        return userData.errors;
       }
     } catch (error) {
       return new Error();

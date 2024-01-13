@@ -1,17 +1,16 @@
 import React from 'react';
 import './Sign-up.scss';
 import {
-  Link,  useNavigate,
+  Link, useNavigate,
 } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-   getArticles, registerUser,
+  getArticles, registerUser,
 } from '../api/get-api-data';
 
-
-export function SignUpForm() {
+function SignUpForm() {
   const {
     register,
     formState: { errors, isValid },
@@ -20,7 +19,6 @@ export function SignUpForm() {
     setError,
     watch,
     clearErrors,
-    setValue,
   } = useForm({
     criteriaMode: 'onBlur',
   });
@@ -39,7 +37,7 @@ export function SignUpForm() {
       return errorMsg;
     }
 
-    reset();
+    return reset();
   };
 
   return (
@@ -153,3 +151,5 @@ export function SignUpForm() {
     </div>
   );
 }
+
+export default SignUpForm;
