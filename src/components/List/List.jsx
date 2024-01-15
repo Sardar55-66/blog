@@ -7,10 +7,10 @@ import { getArticle } from '../api/get-api-data';
 
 function ListOfArticles(props) {
   const dispatch = useDispatch();
-  const articles = props.data.slice(0, 5);
+  const articles = props.data;
 
   return (
-    articles.map((article) => (
+    articles.slice(0, 5).map((article) => (
       <div className="article article_fs">
         <div className="article__header">
           <div className="article__title">
