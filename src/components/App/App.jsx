@@ -107,7 +107,7 @@ function App() {
             path="/"
             element={(
               <>
-                <ListOfArticles key={article.slug} data={article} id={idx} />
+                <ListOfArticles key={slug} data={article} id={idx} />
                 <PaginationControlled />
 
               </>
