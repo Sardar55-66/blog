@@ -13,7 +13,7 @@ export const addArticlesList = (state = initialStateForArticles, action) => {
         isLoaded: true,
         start: state.start + 5,
         end: state.end + 5,
-        articles: [...action.payload],
+        articles: [action.payload],
       };
 
     default:
