@@ -10,10 +10,8 @@ const url = 'https://blog.kata.academy/api';
 
 export const getArticles = () => async (dispatch) => {
   const data = await axios.get('https:/blog.kata.academy/api/articles');
-  setTimeout(() => {
-    dispatch(articlesAddAction(data.data.articles));
-    dispatch(isLoaded());
-  }, 1000);
+  dispatch(articlesAddAction(data.data.articles));
+  dispatch(isLoaded());
 };
 
 export const nextPage = () => async (dispatch) => {

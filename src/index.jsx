@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware } from 'redux';
 import { thunk } from 'redux-thunk';
 import {
-  addArticleSlug, addArticles, addArticlesList,
+  addArticleSlug, addArticlesList,
   addCurrentArticle, addPage, addTags, createUser,
   createdArticle, editedArticle, editedProfile,
   loggingIn, randomAvatar, registeringError,
@@ -16,7 +16,6 @@ import App from './components/App/App';
 
 const store = configureStore({
   reducer: {
-    articles: addArticles,
     article: addCurrentArticle,
     slug: addArticleSlug,
     page: addPage,
