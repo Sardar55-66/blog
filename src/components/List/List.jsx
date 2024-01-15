@@ -8,6 +8,7 @@ import { getArticle } from '../api/get-api-data';
 function ListOfArticles(props) {
   const dispatch = useDispatch();
   const articles = props.data;
+  console.log(articles);
 
   return (
     articles.map((article) => (
