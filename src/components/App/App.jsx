@@ -102,7 +102,7 @@ function App() {
         <Route path="/authorized-list/articles/{slug}/edited" element={<EditedArticle />} />
       </Routes>
 
-      {!isLoaded ? null : articles.map((article, idx) => (
+      {!isLoaded ? null : articles.slice(0, 5).map((article, idx) => (
         <Routes>
           <Route
             path="/"
