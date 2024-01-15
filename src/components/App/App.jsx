@@ -28,12 +28,13 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getArticles());
-  }, [dispatch]);
+  }, []);
 
   const isLoaded = useSelector((state) => state.addA.isLoaded);
   const articles = useSelector((state) => state.addA.articles);
   const slug = useSelector((state) => state.slug.slug);
   const errorMsg = useSelector((state) => state.error.errorMessage);
+  console.log(articles);
 
   return (
 
@@ -82,7 +83,7 @@ function App() {
       </header>
 
       <Routes>
-        <Route path="/" element={articles.length === 0 ? <NoArticle /> : null} />
+        {/* <Route path="/" element={articles.length === 0 ? <NoArticle /> : null} /> */}
         <Route path="/authorized-list" element={articles.length === 0 ? <NoArticle /> : null} />
         <Route path="/authorized-list/:profile?" element={<EditProfile />} />
         <Route path="/authorized-list/new-article" element={<CreateArticle />} />
