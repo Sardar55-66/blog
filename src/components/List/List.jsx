@@ -8,7 +8,6 @@ import { getArticle } from '../api/get-api-data';
 function ListOfArticles(props) {
   const dispatch = useDispatch();
   const articles = props.data;
-  articles.length = 5;
 
   return (
     articles.map((article) => (
