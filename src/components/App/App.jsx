@@ -34,6 +34,7 @@ function App() {
   const articles = useSelector((state) => state.addA.articles);
   const slug = useSelector((state) => state.slug.slug);
   const errorMsg = useSelector((state) => state.error.errorMessage);
+  console.log(articles);
 
   return (
 
